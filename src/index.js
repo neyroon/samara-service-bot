@@ -19,7 +19,6 @@ const startBot = async () => {
   bot.on("message", async (msg) => {
     const chatId = msg.chat.id;
     try {
-      if (msg.text === "/start") {
         const user = await UserModel.findOne({ chatId });
         if (user) {
           return bot.sendMessage(chatId, `Не нужно писать /start еще раз!`);
@@ -27,7 +26,6 @@ const startBot = async () => {
         await UserModel.create({ chatId });
         return bot.sendMessage(chatId, `Скоро сюда будут поступать заявки!`);
       }
-    } catch (e) {}
   });
 };
 
