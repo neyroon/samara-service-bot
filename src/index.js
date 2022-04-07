@@ -34,15 +34,13 @@ startBot();
 
 const fastify = Fastify();
 
-fastify.post("/callback", function (request, reply) {
+fastify.post("/callback", async (request, reply) => {
   try {
     const users = await UserModel.findAll();
     for (const user of users) {
       bot.sendMessage(user.chatId, JSON.stringify(request.body));
     }
-  } catch (error) {
-    
-  }
+  } catch (error) {}
   reply.code(200).send("");
 });
 
