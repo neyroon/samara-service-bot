@@ -12,6 +12,7 @@ const startBot = async () => {
   try {
     await DB.authenticate();
     await DB.sync();
+    console.log("auth");
   } catch (e) {
     console.log("Подключение к бд сломалось", e);
   }
@@ -20,6 +21,7 @@ const startBot = async () => {
     const chatId = msg.chat.id;
     try {
       const user = await UserModel.findOne({ chatId });
+      console.log(user);
       if (user) {
         return bot.sendMessage(chatId, `Не нужно писать /start еще раз!`);
       }
