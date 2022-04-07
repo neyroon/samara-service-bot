@@ -10,6 +10,7 @@ const bot = new TelegramBot(process.env.BOT_API, { polling: true });
 
 const startBot = async () => {
   try {
+    await DB.authenticate();
     await DB.sync();
   } catch (e) {
     console.log("Подключение к бд сломалось", e);
