@@ -12,6 +12,8 @@
   "dependencies": {
     "dotenv": "^16.0.0",
     "fastify": "^3.28.0",
+    "fastify-cors": "^6.0.3",
+    "mysql2": "^2.3.3",
     "node-telegram-bot-api": "^0.56.0",
     "pg": "^8.7.3",
     "pg-hstore": "^2.3.4",
